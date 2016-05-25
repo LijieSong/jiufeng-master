@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="39dp"
+            android:layout_marginTop="36dp"
+            android:src="@mipmap/image"
+            android:id="@+id/image_head"
+            fresco:actualImageScaleType="fitCenter"
+            fresco:failureImage="@drawable/default_head"
+            fresco:placeholderImage="@drawable/default_head" />
+
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/dead_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:textSize="16sp"
+            android:layout_alignParentBottom="true"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/app_red"
+            app:tabMode="fixed"
+            app:tabTextColor="#000000"></android.support.design.widget.TabLayout>
+
+    </RelativeLayout>
+    <include layout="@layout/dead_infomation"></include>
+
+</LinearLayout>

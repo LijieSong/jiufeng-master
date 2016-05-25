@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/textview_head"
+            style="@style/textview_main_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="灵堂管理" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#E4E4E4"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/center_manager_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/imageview_header"
+            android:layout_width="71dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="35dp"
+            android:src="@mipmap/ic_launcher"
+            fresco:failureImage="@drawable/default_head"
+            fresco:placeholderImage="@drawable/default_head" />
+
+        <TextView
+            android:id="@+id/textview_memorialName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:text="纪念馆名称：王速宏"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textview_accountPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="134******22"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textview_accountEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="mob****er@qq.com"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lineat_galley"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="15dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="14dp"
+            android:src="@mipmap/linear_camera" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="13dp"
+            android:drawableRight="@mipmap/arrow_right"
+            android:text="纪念相册管理"
+            android:textColor="#565656"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_goto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="19dp"
+            android:layout_height="15dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="14dp"
+            android:src="@mipmap/candle" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="13dp"
+            android:drawableRight="@mipmap/arrow_right"
+            android:text="纪念逝者"
+            android:textColor="#565656"
+            android:textSize="16dp" />
+    </LinearLayout>
+</LinearLayout>

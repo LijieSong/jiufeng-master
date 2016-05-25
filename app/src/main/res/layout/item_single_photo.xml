@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="140dp"
+    android:layout_weight="1">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/imageview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        fresco:failureImage="@mipmap/flower1"
+        fresco:placeholderImage="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/checkbox"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/imageview"
+        android:layout_alignRight="@+id/imageview"
+        android:paddingLeft="70dp"
+        android:paddingTop="70dp"
+        android:src="@drawable/checkbox"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:text="内容"
+        android:textColor="@color/black" />
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.uniquedu.cemetery.MainActivity">
+
+    <com.uniquedu.cemetery.view.NoScrollViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:id="@+id/viewpager"
+        android:layout_weight="1">
+
+    </com.uniquedu.cemetery.view.NoScrollViewPager>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e4e4e4"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="7dp">
+
+        <TextView
+            android:id="@+id/textview_infomation"
+            style="@style/textview_main_tab"
+            android:drawableTop="@drawable/infomation"
+            android:text="九峰资讯" />
+
+        <TextView
+            android:id="@+id/textview_worship"
+            style="@style/textview_main_tab"
+            android:drawableTop="@drawable/worship"
+            android:text="在线祭扫" />
+
+        <TextView
+            android:id="@+id/textview_center"
+            style="@style/textview_main_tab"
+            android:drawableTop="@drawable/center"
+            android:text="灵堂登录" />
+
+        <TextView
+            android:id="@+id/textview_scan"
+            style="@style/textview_main_tab"
+            android:drawableTop="@drawable/scan"
+            android:text="扫一扫" />
+    </LinearLayout>
+</LinearLayout>
