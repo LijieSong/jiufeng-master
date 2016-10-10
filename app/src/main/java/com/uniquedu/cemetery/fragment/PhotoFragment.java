@@ -2,6 +2,7 @@ package com.uniquedu.cemetery.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
@@ -25,8 +26,10 @@ import com.uniquedu.cemetery.Address;
 import com.uniquedu.cemetery.BaseFragment;
 import com.uniquedu.cemetery.R;
 import com.uniquedu.cemetery.activity.DeadHomePageActivity;
+import com.uniquedu.cemetery.activity.PicViewerActivity;
 import com.uniquedu.cemetery.activity.ShowPhotoActivity;
 import com.uniquedu.cemetery.adapter.PhotoAdapter;
+import com.uniquedu.cemetery.adapter.PhotosAdapter;
 import com.uniquedu.cemetery.bean.Dead;
 import com.uniquedu.cemetery.bean.PhotoBean;
 import com.uniquedu.cemetery.pulltorefresh.PullToRefreshBase;
@@ -52,7 +55,7 @@ public class PhotoFragment extends BaseFragment {
     private String deadId;
     private ArrayList<PhotoBean> mList;
     private int page = 1;
-    private PhotoAdapter mAdapter;
+    private PhotosAdapter mAdapter;
     private static final int STATE_LOAD_MORE = 0;
     private static final int STATE_LOAD_REFRESH = 1;
     private TextView mTextViewNull;
@@ -67,7 +70,7 @@ public class PhotoFragment extends BaseFragment {
         mListView = mPullRefreshView.getRefreshableView();
         mTextViewNull = (TextView) view.findViewById(R.id.textview_null);
         mList = new ArrayList<>();
-        mAdapter = new PhotoAdapter(inflater, mList);
+        mAdapter = new PhotosAdapter(inflater, mList);
         mListView.setAdapter(mAdapter);
         mPullRefreshView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
@@ -81,11 +84,21 @@ public class PhotoFragment extends BaseFragment {
             }
         });
         loadData(STATE_LOAD_REFRESH);
-        mAdapter.setOnItemListener(new PhotoAdapter.OnItemClick() {
+//        mAdapter.setOnItemListener(new PhotoAdapter.OnItemClick() {
+//            @Override
+//            public void onItemClick(PhotoBean bean) {
+//                Intent intent = new Intent(getActivity(), ShowPhotoActivity.class);
+//                intent.putExtra("photo", bean);
+//                startActivity(intent);
+//            }
+//        });
+        mAdapter.setOnItemListener(new PhotosAdapter.OnItemClick() {
+
             @Override
-            public void onItemClick(PhotoBean bean) {
-                Intent intent = new Intent(getActivity(), ShowPhotoActivity.class);
-                intent.putExtra("photo", bean);
+            public void onItemClick(List<PhotoBean> bean) {
+                Intent intent = new Intent(getActivity(), PicViewerActivity.class);
+//                intent.putExtra("photos",bean.toString());
+                intent.putParcelableArrayListExtra("photos", (ArrayList<? extends Parcelable>) bean);
                 startActivity(intent);
             }
         });

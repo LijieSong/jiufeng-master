@@ -18,8 +18,10 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
+import android.util.Log;
 
 import com.uniquedu.cemetery.utils.GetServerUrl;
+import com.uniquedu.cemetery.utils.UpdataInfo;
 
 import cz.msebera.android.httpclient.HttpEntity;
 import cz.msebera.android.httpclient.HttpResponse;
@@ -32,14 +34,14 @@ public class UpdateInfoService {
     ProgressDialog progressDialog;
     Handler handler;
     Context context;
-    UpdateInfo updateInfo;
+    UpdataInfo updateInfo;
 
     public UpdateInfoService(Context context) {
         this.context = context;
     }
 
-    public UpdateInfo getUpDateInfo() throws Exception {
-        String path = GetServerUrl.getUrl() + "/update.txt";
+    public UpdataInfo getUpDateInfo() throws Exception {
+        String path = GetServerUrl.getUrl() + "/VersionUpdate.txt";
         StringBuffer sb = new StringBuffer();
         String line = null;
         BufferedReader reader = null;
@@ -68,7 +70,8 @@ public class UpdateInfoService {
             }
         }
         String info = sb.toString();
-        UpdateInfo updateInfo = new UpdateInfo();
+        Log.e("slj", "getUpDateInfo: "+info );
+        UpdataInfo updateInfo = new UpdataInfo();
         updateInfo.setVersion(info.split("&")[1]);
         updateInfo.setDescription(info.split("&")[2]);
         updateInfo.setUrl(info.split("&")[3]);

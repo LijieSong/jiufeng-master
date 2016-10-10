@@ -8,7 +8,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-
 import android.app.Dialog;
 import android.app.AlertDialog.Builder;
 import android.app.Notification;
@@ -27,17 +26,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RemoteViews;
-
 import com.uniquedu.cemetery.MainActivity;
 import com.uniquedu.cemetery.R;
 import com.uniquedu.cemetery.service.ParseXmlService;
 
 /**
- * @author coolszy
- * @date 2012-4-26
- * @blog http://blog.92coding.com
+ * 升级管理
  */
-
 public class UpdateManager {
     /* 下载中 */
     private static final int DOWNLOAD = 1;
@@ -62,6 +57,8 @@ public class UpdateManager {
    private Notification notification;
     private boolean isFinish = false;
     Intent notificationIntent = null;
+    private String url = "http://www.whjfs.com/app/version.xml";
+    private InputStream inStream= null;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -99,10 +96,10 @@ public class UpdateManager {
      * 检测软件更新
      */
     public void checkUpdate() {
-//        if (isUpdate() == true) {
+        if (isUpdate() == true) {
             // 显示提示对话框
             showNoticeDialog();
-//        }
+        }
 //        else {
 //            Toast.makeText(mContext, R.string.soft_update_no, Toast.LENGTH_LONG).show();
 //        }
@@ -117,6 +114,13 @@ public class UpdateManager {
         // 获取当前软件版本
         int versionCode = getVersionCode(mContext);
         // 把version.xml放到网络上，然后获取文件信息
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                super.run();
+//                inStream = GetXMLfromInternet.getStream(url);
+//            }
+//        }.start();
         InputStream inStream = ParseXmlService.class.getClassLoader().getResourceAsStream("version.xml");
         // 解析XML文件。 由于XML文件比较小，因此使用DOM方式进行解析
         ParseXmlService service = new ParseXmlService();
@@ -170,7 +174,7 @@ public class UpdateManager {
                 //显示通知栏进度条
                 showNotificationDownLoad();
                 nm.notify(notification_id, notification);
-                mHandler.post(run);
+//                mHandler.post(run);
             }
         });
         // 稍后更新
@@ -293,7 +297,7 @@ public class UpdateManager {
                         if (numread <= 0) {
                             // 下载完成
                             mHandler.sendEmptyMessage(DOWNLOAD_FINISH);
-                            mHandler.post(run);
+//                            mHandler.post(run);
                             isFinish = true;
                             break;
                         }
@@ -330,16 +334,16 @@ public class UpdateManager {
         i.setDataAndType(Uri.parse("file://" + apkfile.toString()), "application/vnd.android.package-archive");
         mContext.startActivity(i);
     }
-    int count=0;
-    Runnable run=new Runnable(){
-        @Override
-        public void run() {
-            count++;
-            notification.contentView.setProgressBar(R.id.pb, 100,count, false);
-            nm.notify(notification_id,notification);
-            //设置当前值为count
-            if(count<100)  mHandler.postDelayed(run, 200);isFinish = true;
-            //200毫秒count加1
-        }
-    };
+//    int count=0;
+//    Runnable run=new Runnable(){
+//        @Override
+//        public void run() {
+//            count++;
+//            notification.contentView.setProgressBar(R.id.pb, 100,count, false);
+//            nm.notify(notification_id,notification);
+//            //设置当前值为count
+//            if(count<100)  mHandler.postDelayed(run, 200);isFinish = true;
+//            //200毫秒count加1
+//        }
+//    };
 }

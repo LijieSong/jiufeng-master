@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -332,13 +333,13 @@ public class ManagerPhotoActivity extends BaseActivity implements View.OnClickLi
             @Override
             public void onFailure(Call call, IOException e) {
                 //网络连接错误
-                Log.d("managerPhoto", "网络连接返回数据错误");
+                Log.e("slj", "managerPhoto:" + "网络连接返回数据错误");
             }
 
             @Override
             public void onResponse(Call call, okhttp3.Response response) throws IOException {
                 //网络连接成功
-                Log.d("managerPhoto", "网络连接返回数据正常" + response.body().string());
+                Log.e("slj", "managerPhoto:" + "网络连接返回数据正常" + response.toString());
             }
         });
     }
@@ -368,10 +369,8 @@ public class ManagerPhotoActivity extends BaseActivity implements View.OnClickLi
                 }
                 BitmapUtils.zipImage(picturePath, file.getAbsolutePath());
                 postFileOk("http://www.whjfs.com/mvcwebmis/nologin/AppNewMemorialPhoto", file.getAbsolutePath());
-
             }
         }
-
     }
 
     private void postFileHttpClient(final String url, final String filePath) {

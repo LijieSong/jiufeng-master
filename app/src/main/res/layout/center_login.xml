@@ -97,7 +97,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="11dp"
-            android:text="无账号和密码用户，请与武汉市九峰山革命烈士陵园管理处联系。" />
+            android:text="无账号和密码用户，请与武汉市九峰山革命烈士陵园管理处联系：" />
 
         <TextView
             android:layout_width="match_parent"
@@ -115,13 +115,6 @@
             android:layout_marginTop="11dp"
             android:text="地     址：湖北省武汉市洪山区花山镇土桥村特一号" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="11dp"
-            android:text="业务咨询：027-87635476" />
 
         <TextView
             android:layout_width="match_parent"
@@ -129,7 +122,23 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="11dp"
-            android:text="网站咨询：027-87745426" />
+            android:text="网站咨询电话：027-87745426" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="11dp"
+            android:text="网站咨询邮箱：jfbgs@whjfs.com" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="11dp"
+            android:text="业务咨询电话：027-87635476" />
 
         <TextView
             android:layout_width="match_parent"
@@ -139,12 +148,5 @@
             android:layout_marginTop="11dp"
             android:text="业务咨询邮箱：jfyws@whjfs.com" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="11dp"
-            android:text="网站咨询邮箱：jfbgs@whjfs.com" />
     </LinearLayout>
 </ScrollView>

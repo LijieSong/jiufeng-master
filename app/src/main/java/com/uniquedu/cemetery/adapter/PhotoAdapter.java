@@ -38,7 +38,6 @@ public class PhotoAdapter extends BaseAdapter {
     }
 
     private OnItemClick OnItemListener;
-
     public interface OnItemClick {
         public void onItemClick(PhotoBean bean);
     }

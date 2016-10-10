@@ -5,8 +5,7 @@ package com.uniquedu.cemetery.utils;
  */
 
 public class GetServerUrl{
-	static String url="http://www.whjfs.com/app/whjfs.apk";
-
+	static String url="http://www.whjfs.com/app";
 	public static String getUrl() {
 		return url;
 	}

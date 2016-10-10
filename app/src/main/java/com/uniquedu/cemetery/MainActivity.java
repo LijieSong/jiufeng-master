@@ -19,20 +19,19 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.uniquedu.cemetery.adapter.MainPagerAdapter;
 import com.uniquedu.cemetery.fragment.CenterFragment;
 import com.uniquedu.cemetery.fragment.DeadGridFragment;
 import com.uniquedu.cemetery.fragment.InfomationFragment;
-import com.uniquedu.cemetery.service.UpdateInfo;
 import com.uniquedu.cemetery.service.UpdateInfoService;
-import com.uniquedu.cemetery.utils.APKDownload;
+import com.uniquedu.cemetery.utils.GetXMLfromInternet;
+import com.uniquedu.cemetery.utils.UpdataInfo;
 import com.uniquedu.cemetery.utils.UpdateManager;
 import com.uniquedu.cemetery.zbar.CameraTestActivity;
 
-import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,9 +48,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static final int SCAN = 3;
     private List<Fragment> mPages;
     // 更新版本要用到的一些信息
-    private UpdateInfo info;
+    private UpdataInfo info;
     private ProgressDialog progressDialog;
-    UpdateInfoService updateInfoService;
+    private UpdateInfoService updateInfoService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +64,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     STORAGE_PERMISSION);
         }
-//        checkUpdate();//检查更新
         initView();
     }
 
@@ -108,9 +106,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
             }
         });
-        UpdateManager manager1 = new UpdateManager(MainActivity.this);
-//        // 检查软件更新
-        manager1.checkUpdate();
+//        checkUpdate();//检查更新
+//        UpdateManager manager1 = new UpdateManager(MainActivity.this);
+////        // 检查软件更新
+//        manager1.checkUpdate();
 //        AlertDialog dialog = new AlertDialog.Builder(this).setTitle("软件更新").setMessage("更新提示").setNegativeButton("取消", new DialogInterface.OnClickListener() {
 //            @Override
 //            public void onClick(DialogInterface dialog, int which) {
@@ -227,6 +226,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
             }
         });
         builder.create().show();

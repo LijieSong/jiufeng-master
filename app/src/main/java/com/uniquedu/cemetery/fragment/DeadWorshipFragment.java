@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -167,6 +168,7 @@ public class DeadWorshipFragment extends BaseFragment implements View.OnClickLis
                 break;
             case R.id.imageview_music:
                 Intent intent1 = new Intent(getActivity(), MPlayerActivity.class);
+//                Log.e("slj","back:----" + back.getMp3State() +"---back2string:"+back.toString());
                 intent1.putExtra("musicId", back.getMp3State());
                 intent1.putExtra("id", back.getId());
                 startActivity(intent1);
